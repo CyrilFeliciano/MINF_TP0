@@ -58,7 +58,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-
+#include <stdint.h>
 #include "system/common/sys_common.h"
 #include "app.h"
 #include "system_definitions.h"
@@ -74,10 +74,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 void __ISR(_TIMER_1_VECTOR, ipl3AUTO) IntHandlerDrvTmrInstance0(void)
 {
     static uint8_t compteurEtat = 0;
-    
-    PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_1);
-    
-    if(compteurEtat == 29)
+   
+    if(compteurEtat >= 29)
     {
         APP_UpdateState(APP_STATE_SERVICE_TASKS);
     }
@@ -85,7 +83,7 @@ void __ISR(_TIMER_1_VECTOR, ipl3AUTO) IntHandlerDrvTmrInstance0(void)
     {
         compteurEtat++;
     }
-    
+    PLIB_INT_SourceFlagClear(INT_ID_0,INT_SOURCE_TIMER_1);
 }
  /*******************************************************************************
  End of File
