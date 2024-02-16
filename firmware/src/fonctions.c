@@ -31,7 +31,7 @@ void EteindreLEDS(void)
 {
     for (int i = 0; i <= NOMBRELEDS; i++) 
     {
-        BSP_LEDOff(BSP_LED_(i));
+        BSP_LEDOff(i);
     }
 }
 
@@ -49,7 +49,7 @@ void AllumerLEDS(void)
 {
     for (int i = 0; i <= NOMBRELEDS; i++) 
     {
-        BSP_LEDOn(BSP_LED_(i));
+        BSP_LEDOn(i);
     }
 }
 
@@ -70,6 +70,7 @@ void Chenillard(void)
 {   
     static uint8_t compteurLed = 0;
     static uint8_t compteurEteint = 0;
+    static int ledIndex = 0;
     
     if(compteurEteint == 0)
     {
@@ -77,52 +78,17 @@ void Chenillard(void)
         compteurEteint++;
     }
     
-    switch (compteurLed)
+    
+
+    BSP_LEDOff(ledIndex); // Éteindre la LED précédente
+    ledIndex++; // Passer à la LED suivante
+    if (ledIndex >= NOMBRELEDS) 
     {
-        case 0:
-            BSP_LEDOff(BSP_LED_7);
-            BSP_LEDOn(BSP_LED_0);
-            compteurLed++;
-            break;
-        case 1:
-            BSP_LEDOff(BSP_LED_0);
-            BSP_LEDOn(BSP_LED_1);
-            compteurLed++;
-            break;
-        case 2:
-            BSP_LEDOff(BSP_LED_1);
-            BSP_LEDOn(BSP_LED_2);
-            compteurLed++;
-            break;
-        case 3:
-            BSP_LEDOff(BSP_LED_2);
-            BSP_LEDOn(BSP_LED_3);
-            compteurLed++;
-            break;
-        case 4:
-            BSP_LEDOff(BSP_LED_3);
-            BSP_LEDOn(BSP_LED_4);
-            compteurLed++;
-            break;
-        case 5:
-            BSP_LEDOff(BSP_LED_4);
-            BSP_LEDOn(BSP_LED_5);
-            compteurLed++;
-            break;
-        case 6:
-            BSP_LEDOff(BSP_LED_5);
-            BSP_LEDOn(BSP_LED_6);
-            compteurLed++;
-            break;
-        case 7:
-            BSP_LEDOff(BSP_LED_6);
-            BSP_LEDOn(BSP_LED_7);
-            compteurLed = 0;
-            break;
-        default :
-            break;    
-    }   
+    ledIndex = 0; // Si on atteint la dernière LED, revenir à la première
+    }
+    BSP_LEDOn(ledIndex); // Allumer la nouvelle LED
 }
+
 
 /* 
  Auteur : Cyril Feliciano
