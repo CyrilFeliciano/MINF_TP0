@@ -52,15 +52,12 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 // *****************************************************************************
 // *****************************************************************************
 
-#include <stdint.h>
-#include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <fonctions.h>
 #include "system_config.h"
 #include "system_definitions.h"
-#include "Mc32DriverAdc.h"
-#include "Mc32DriverLcd.h"
+
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -91,7 +88,7 @@ typedef enum
 {
 	/* Application's state machine's initial state. */
 	APP_STATE_INIT=0,
-    APP_STATE_WAIT = 1,
+    	APP_STATE_WAIT,
 	APP_STATE_SERVICE_TASKS,
     
     
