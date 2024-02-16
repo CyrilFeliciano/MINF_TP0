@@ -2,11 +2,14 @@
  * File:   fonctions.c
  * Author: cyril feliciano
  * 
- * Description : Ce fichier contient les déclarations de mes fonctions.
+ * Description : Ce fichier contient les dÃ©clarations de mes fonctions.
  * 
  */
 
 #include "fonctions.h"
+#include <stdint.h>
+#include "Mc32DriverAdc.h"  //ajout de la librairie contenant les fonctions liÃ© a l'ADC
+#include "Mc32DriverLcd.h"  //ajout de la librairie contenant les fonctions liÃ© au LCD
 
 APP_DATA appData;
 
@@ -18,10 +21,10 @@ Fonction :
 void EteindreLEDS(void)
 
 Description :
-Cette fonction éteint chaque LED individuellement en appelant la fonction
-BSP_LEDOff avec l'identifiant de chaque LED (de BSP_LED_0 à BSP_LED_7).
-Elle peut être utilisée pour mettre tous les indicateurs lumineux dans un
-état éteint.
+Cette fonction Ã©teint chaque LED individuellement en appelant la fonction
+BSP_LEDOff avec l'identifiant de chaque LED (de BSP_LED_0 Ã  BSP_LED_7).
+Elle peut Ãªtre utilisÃ©e pour mettre tous les indicateurs lumineux dans un
+Ã©tat Ã©teint.
  */
 void EteindreLEDS(void)
 {
@@ -43,7 +46,7 @@ void AllumerLEDS(void)
 
 Description :
 Cette fonction active chaque LED de la carte en appelant la fonction
-BSP_LEDOn avec l'identifiant de chaque LED (de BSP_LED_0 à BSP_LED_7).
+BSP_LEDOn avec l'identifiant de chaque LED (de BSP_LED_0 Ã  BSP_LED_7).
 */
 void AllumerLEDS(void)
 {
@@ -64,10 +67,10 @@ void AllumerLEDS(void)
  void Chenillard(void)
 
  Description :
- Cette fonction implémente un effet de chenillard en faisant défiler
+ Cette fonction implÃ©mente un effet de chenillard en faisant dÃ©filer
  l'allumage des LED sur la carte. Elle utilise deux compteurs statiques,
- compteurLed et compteurEteint, pour gérer l'état du chenillard. Les LED
- sont allumées une à une dans l'ordre, puis éteintes simultanément avant
+ compteurLed et compteurEteint, pour gÃ©rer l'Ã©tat du chenillard. Les LED
+ sont allumÃ©es une Ã  une dans l'ordre, puis Ã©teintes simultanÃ©ment avant
  de recommencer le cycle.
 */
 void Chenillard(void)
@@ -135,10 +138,10 @@ void Chenillard(void)
  void initPeriph(void)
 
  Description :
- Cette fonction initialise les périphériques nécessaires pour le projet.
- Elle utilise les fonctions spécifiques à l'écran LCD (lcd_init,
+ Cette fonction initialise les pÃ©riphÃ©riques nÃ©cessaires pour le projet.
+ Elle utilise les fonctions spÃ©cifiques Ã  l'Ã©cran LCD (lcd_init,
  lcd_gotoxy, printf_lcd, lcd_bl_on) pour afficher des informations
- d'identification et active le bloc d'ADC (convertisseur analogique-numérique)
+ d'identification et active le bloc d'ADC (convertisseur analogique-numÃ©rique)
  avec la fonction BSP_InitADC10.
 */
 void InitPeriph (void)
@@ -159,9 +162,9 @@ void InitPeriph (void)
  void lectureEtAffichageADC(void)
 
  Description :
- Cette fonction lit les valeurs ADC pour les canaux 0 et 1 à l'aide de
- la fonction BSP_ReadAllADC. Elle affiche ensuite ces valeurs sur l'écran
- LCD à des positions spécifiques à l'aide des fonctions lcd_gotoxy et
+ Cette fonction lit les valeurs ADC pour les canaux 0 et 1 Ã  l'aide de
+ la fonction BSP_ReadAllADC. Elle affiche ensuite ces valeurs sur l'Ã©cran
+ LCD Ã  des positions spÃ©cifiques Ã  l'aide des fonctions lcd_gotoxy et
  printf_lcd.
 */
 
