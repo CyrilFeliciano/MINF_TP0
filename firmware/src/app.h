@@ -201,6 +201,19 @@ void APP_Initialize ( void );
 
 void APP_Tasks(void);
 
+
+/*
+Auteur : Cyril Feliciano
+
+Fonction :
+void APP_UpdateState(APP_STATES NewState)
+
+Description :
+Cette fonction met à jour l'état de l'application avec celui spécifié en paramètre.
+
+Elle prend en paramètre NewState, qui représente le nouvel état de l'application à définir.
+*/
+
 void APP_UpdateState(APP_STATES NewState);
 
 
