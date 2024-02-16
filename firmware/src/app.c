@@ -55,6 +55,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "app.h"
 #include "fonctions.h"
+#include "Mc32DriverAdc.h"
+#include "Mc32DriverLcd.h"
 
 
 // *****************************************************************************
@@ -143,10 +145,10 @@ void APP_Tasks ( void )
         /* Application's initial state. */
         case APP_STATE_INIT:
         {
-            InitPeriph();   //Initialisation des périphériques
+            InitPeriph();   //Initialisation des pÃ©riphÃ©riques
             AllumerLEDS();  //Allumage des LEDs
-            DRV_TMR0_Start(); //Démarrage du timer
-            APP_UpdateState(APP_STATE_WAIT); //Mise à jour de la machine d'état
+            DRV_TMR0_Start(); //DÃ©marrage du timer
+            APP_UpdateState(APP_STATE_WAIT); //Mise Ã  jour de la machine d'Ã©tat
             break;
         }
 
@@ -154,7 +156,7 @@ void APP_Tasks ( void )
         {
             LectureEtAffichageADC();    //Lecture et affichage de la valeur de l'ADC
             Chenillard();               //Appel de la fonction Chenillard
-            APP_UpdateState(APP_STATE_WAIT); //Mise à jour de la machine d'état
+            APP_UpdateState(APP_STATE_WAIT); //Mise Ã  jour de la machine d'Ã©tat
             break;
         }
         case APP_STATE_WAIT:
@@ -173,11 +175,11 @@ void APP_Tasks ( void )
     }
 }
 
-//Déclaration de fonction pour la mise à jour des états
+//DÃ©claration de fonction pour la mise Ã  jour des Ã©tats
 
 void APP_UpdateState(APP_STATES NewState)
 {
-        appData.state = NewState; //mise à jour d'état
+        appData.state = NewState; //mise Ã  jour d'Ã©tat
 }
 
 /*******************************************************************************
