@@ -13,6 +13,7 @@
 
 APP_DATA appData;
 
+#define NOMBRELEDS 8
 
 /* 
 Auteur : Cyril Feliciano
@@ -28,14 +29,10 @@ Elle peut être utilisée pour mettre tous les indicateurs lumineux dans un
  */
 void EteindreLEDS(void)
 {
-    BSP_LEDOff(BSP_LED_0);
-    BSP_LEDOff(BSP_LED_1);
-    BSP_LEDOff(BSP_LED_2);
-    BSP_LEDOff(BSP_LED_3);
-    BSP_LEDOff(BSP_LED_4);
-    BSP_LEDOff(BSP_LED_5);
-    BSP_LEDOff(BSP_LED_6);
-    BSP_LEDOff(BSP_LED_7);
+    for (int i = 0; i <= NOMBRELEDS; i++) 
+    {
+        BSP_LEDOff(BSP_LED_(i));
+    }
 }
 
 /* 
@@ -50,14 +47,10 @@ BSP_LEDOn avec l'identifiant de chaque LED (de BSP_LED_0 à BSP_LED_7).
 */
 void AllumerLEDS(void)
 {
-    BSP_LEDOn(BSP_LED_0);
-    BSP_LEDOn(BSP_LED_1);
-    BSP_LEDOn(BSP_LED_2);
-    BSP_LEDOn(BSP_LED_3);
-    BSP_LEDOn(BSP_LED_4);
-    BSP_LEDOn(BSP_LED_5);
-    BSP_LEDOn(BSP_LED_6);
-    BSP_LEDOn(BSP_LED_7);
+    for (int i = 0; i <= NOMBRELEDS; i++) 
+    {
+        BSP_LEDOn(BSP_LED_(i));
+    }
 }
 
 /*
