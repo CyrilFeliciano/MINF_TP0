@@ -55,8 +55,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "app.h"
 #include "fonctions.h"
-#include "Mc32DriverAdc.h"  //ajout de la librairie contenant les fonctions lié a l'ADC
-#include "Mc32DriverLcd.h"  //ajout de la librairie contenant les fonctions lié au LCD
+
 
 
 // *****************************************************************************
